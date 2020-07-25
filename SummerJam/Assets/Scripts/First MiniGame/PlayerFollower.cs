@@ -48,7 +48,7 @@ public class PlayerFollower : MonoBehaviour
     {
         if (collision.tag == "Text")
         {
-
+            FirstMiniGameManager.instance.GetName(collision.gameObject);
         }
     }
 }
