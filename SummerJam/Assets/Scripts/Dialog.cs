@@ -11,6 +11,7 @@ public class Dialog : MonoBehaviour
     public float typingSpeed;
 
     public GameObject continueButton;
+    public GameObject canvasMiniGame;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,7 @@ public class Dialog : MonoBehaviour
         {
             textDisplay.text = "";
             continueButton.SetActive(false);
+            canvasMiniGame.SetActive(true);
         }
     }
 
