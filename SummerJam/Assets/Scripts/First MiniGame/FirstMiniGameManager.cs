@@ -19,8 +19,10 @@ public class FirstMiniGameManager : MonoBehaviour
     private float timerLeft;
     private string[] fieldSeparator = { " " , "."};
     private bool[] checkValidate;
-    public List<string> namesMiniGame;
-    private bool[] spawnUse;
+    private List<string> namesMiniGame;
+    private List<int> spawnUse;
+    private List<SpawnName> points;
+    private List<string> wordsInGame;
 
     private void Awake()
     {
@@ -40,8 +42,10 @@ public class FirstMiniGameManager : MonoBehaviour
     void Start()
     {
         timerLeft = timer;
-        spawnUse = new bool[spawnPoints.Count];
-        PrepareListNames("oui je suis l'enfant de la vierge et j'apporte la paix dans le monde");
+        spawnUse = new List<int>();
+        points = new List<SpawnName>();
+        wordsInGame = new List<string>();
+        PrepareListNames("oui je suis l'enfant de la vierge et j'apporte une paix dans le monde");
     }
 
     // Update is called once per frame
@@ -56,48 +60,55 @@ public class FirstMiniGameManager : MonoBehaviour
         textMesh.text = timerLeft.ToString("00.00");
         if (timerLeft <= 0f)
         {
-            //END MINIGAME
+            EndGame();
         }
     }
 
     public void GenerateName()
     {
         int randomName;
-        bool present;
         int randomSpawn;
-        do
+
+        while (true)
         {
             randomSpawn = UnityEngine.Random.Range(0, spawnPoints.Count);
-            randomName = UnityEngine.Random.Range(0, listNamesMiniGame.Length);
-            string word = namesMiniGame.Find(name => name == listNamesMiniGame[randomName]);
-            if (word == "")
-            {
-                present = false;
-            }
-            else
-            {
-                present = true;
-            }
-        } while (checkValidate[randomName] && present && !spawnUse[randomSpawn]);
 
-        GameObject obj = Instantiate(newName, gameObject.transform);
-        obj.transform.position = spawnPoints[randomSpawn].transform.position;
-        obj.GetComponent<TextMeshPro>().text = listNamesMiniGame[randomName];
-        namesMiniGame.Remove(listNamesMiniGame[randomName]);
-        spawnUse[randomSpawn] = true;
+            if (!spawnUse.Contains(randomSpawn))
+            {
+                spawnUse.Add(randomSpawn);
+                break;
+            }         
+        }
+        while (true)
+        {
+            randomName = UnityEngine.Random.Range(0, namesMiniGame.Count);
+            if (!wordsInGame.Contains(namesMiniGame[randomName]))
+            {
+                wordsInGame.Add(namesMiniGame[randomName]);
+                GameObject obj = Instantiate(newName, gameObject.transform);
+                obj.transform.position = spawnPoints[randomSpawn].transform.position;
+                obj.GetComponent<TextMeshPro>().text = namesMiniGame[randomName];
+                break;
+            }
+        }     
+        points.Add(new SpawnName(randomSpawn, namesMiniGame[randomName]));
     }
 
     public void GetName(GameObject word)
-    {
+    {        
         string wordFind = word.GetComponent<TextMeshPro>().text;
         int index = Array.FindIndex(listNamesMiniGame, wornd => wornd == wordFind);
         checkValidate[index] = true;
-        Destroy(word);
+        wordsInGame.Remove(wordFind);
+        namesMiniGame.Remove(wordFind);
+        int spawn = points.Find(point => point.word == wordFind).spawnPoint;
+        spawnUse.Remove(spawn);               
+        Destroy(word);   
         if (namesMiniGame.Count == 0)
         {
-
+            EndGame();
         }
-        else
+        else if (namesMiniGame.Count >= 2)
         {
             GenerateName();
         }
@@ -114,5 +125,22 @@ public class FirstMiniGameManager : MonoBehaviour
         }
         GenerateName();
         GenerateName();
+    }
+
+    public void EndGame()
+    {
+
+    }
+}
+
+public struct SpawnName
+{
+    public int spawnPoint;
+    public string word;
+
+    public SpawnName(int point, string s)
+    {
+        spawnPoint = point;
+        word = s;
     }
 }
