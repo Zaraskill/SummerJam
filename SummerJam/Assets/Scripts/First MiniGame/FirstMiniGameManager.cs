@@ -9,7 +9,7 @@ public class FirstMiniGameManager : MonoBehaviour
 
     public static FirstMiniGameManager instance;
 
-    public static string[] listNamesMiniGame;
+    public string[] listNamesMiniGame;
 
     public GameObject newName;
     public List<GameObject> spawnPoints;
@@ -19,7 +19,8 @@ public class FirstMiniGameManager : MonoBehaviour
     private float timerLeft;
     private string[] fieldSeparator = { " " , "."};
     private bool[] checkValidate;
-    private string[] namesMiniGame;
+    public List<string> namesMiniGame;
+    private bool[] spawnUse;
 
     private void Awake()
     {
@@ -39,7 +40,8 @@ public class FirstMiniGameManager : MonoBehaviour
     void Start()
     {
         timerLeft = timer;
-        PrepareListNames("oui");
+        spawnUse = new bool[spawnPoints.Count];
+        PrepareListNames("oui je suis l'enfant de la vierge et j'apporte la paix dans le monde");
     }
 
     // Update is called once per frame
@@ -58,15 +60,17 @@ public class FirstMiniGameManager : MonoBehaviour
         }
     }
 
-    public void GenerateName(int spawnPoint)
+    public void GenerateName()
     {
         int randomName;
         bool present;
+        int randomSpawn;
         do
         {
+            randomSpawn = UnityEngine.Random.Range(0, spawnPoints.Count);
             randomName = UnityEngine.Random.Range(0, listNamesMiniGame.Length);
-            string word = Array.Find(namesMiniGame, name => name == listNamesMiniGame[randomName]);
-            if (word == null)
+            string word = namesMiniGame.Find(name => name == listNamesMiniGame[randomName]);
+            if (word == "")
             {
                 present = false;
             }
@@ -74,27 +78,41 @@ public class FirstMiniGameManager : MonoBehaviour
             {
                 present = true;
             }
-        } while (checkValidate[randomName] && present);
+        } while (checkValidate[randomName] && present && !spawnUse[randomSpawn]);
 
         GameObject obj = Instantiate(newName, gameObject.transform);
-        obj.transform.position = spawnPoints[spawnPoint].transform.position;
+        obj.transform.position = spawnPoints[randomSpawn].transform.position;
         obj.GetComponent<TextMeshPro>().text = listNamesMiniGame[randomName];
+        namesMiniGame.Remove(listNamesMiniGame[randomName]);
+        spawnUse[randomSpawn] = true;
     }
 
-    public void GetName()
+    public void GetName(GameObject word)
     {
+        string wordFind = word.GetComponent<TextMeshPro>().text;
+        int index = Array.FindIndex(listNamesMiniGame, wornd => wornd == wordFind);
+        checkValidate[index] = true;
+        Destroy(word);
+        if (namesMiniGame.Count == 0)
+        {
 
+        }
+        else
+        {
+            GenerateName();
+        }
     }
 
     public void PrepareListNames(string sentence)
     {
         listNamesMiniGame = sentence.Split(fieldSeparator, StringSplitOptions.RemoveEmptyEntries);
-        namesMiniGame = listNamesMiniGame;
+        namesMiniGame = new List<string>(listNamesMiniGame);
         checkValidate = new bool[listNamesMiniGame.Length];
         for(int index = 0 ; index < listNamesMiniGame.Length ; index++)
         {
             checkValidate[index] = false;
         }
-        GenerateName(0);
+        GenerateName();
+        GenerateName();
     }
 }
