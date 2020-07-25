@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11565299d776d14b84e4d457e5f2330, type: 3}
+  m_Name: Silver Galaxy
+  m_EditorClassIdentifier: 
+  prix: 0
+  visuals: 1
+  rooms: 0700000004000000030000000a000000
+  langages: 0700000003000000
+  jours: 0500000006000000
