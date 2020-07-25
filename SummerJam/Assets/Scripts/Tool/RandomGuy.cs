@@ -2,67 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-public enum Prix
-{
-    Faible,
-    Moyen,
-    Cher,
-}
-
-public enum Visuel
-{
-    Ancien,
-    Moderne,
-    Atypique,
-}
-
-public enum Hotel
-{
-    Amoureux,
-    Seul,
-    Duo,
-    Sous_marine,
-    Familiale,
-    Cinema,
-    Pyramide,
-    Moyen_Age,
-    Préhistoire,
-    ScienceFiction,
-    Sport,
-    Zoo,
-    Luxe,
-}
-
-public enum Menu
-{
-    Végétarien,
-    Marin,
-    Carnivore,
-    SurpriseChef,
-    Découverte, 
-    Enfant,
-    Gourmand,
-    Vegan,
-    SansGluten,
-    SansPorc,
-    Exotique,
-    floral,
-    MaxiBestOfPlus,
-}
-
-public enum Langqge
-{
-    Isou,
-    Apotrick,
-    Topipozo,
-    MarABoute,
-    TopineEnBoir,
-    ClafOuti,
-    PateEpourcha,
-    ChiPolata,
-}*/
-
 [System.Serializable]
 public struct WordIdee
 {
@@ -97,8 +36,6 @@ public class RandomGuy : MonoBehaviour
 
         for (int i = guyNesecities.Count; i-- > 0;)
         {
-            //nesecity.Add(guyNesecities[i].derivery[Random.Range(0, guyNesecities[i].derivery.Count)]);
-
             if (guyNesecities[i].termes.Count <= 0)
             {
                 return;
