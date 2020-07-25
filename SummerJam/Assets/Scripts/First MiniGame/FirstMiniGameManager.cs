@@ -18,6 +18,7 @@ public class FirstMiniGameManager : MonoBehaviour
     public float timer;
     public TextMeshPro textMesh;
     public TextMeshPro countdownStart;
+    public int numberWords;
 
     private float timerStart = 4f;
     private float timerLeft;
@@ -128,7 +129,7 @@ public class FirstMiniGameManager : MonoBehaviour
         {
             EndGame();
         }
-        else if (namesMiniGame.Count >= 2)
+        else if (namesMiniGame.Count >= numberWords)
         {
             GenerateName();
         }
@@ -143,8 +144,10 @@ public class FirstMiniGameManager : MonoBehaviour
         {
             checkValidate[index] = false;
         }
-        GenerateName();
-        GenerateName();
+        for (int index = 0; index < numberWords ; index++)
+        {
+            GenerateName();
+        }
     }
 
     public void EndGame()
