@@ -153,6 +153,7 @@ public class FirstMiniGameManager : MonoBehaviour
     public void EndGame()
     {
         canStart = false;
+        GameManager.instance.DecriptString(checkValidate);
         gameObject.SetActive(false);
     }
 
