@@ -34,6 +34,6 @@ public class NameFollower : MonoBehaviour
     public void UnFollowTarget()
     {
         isActive = false;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
