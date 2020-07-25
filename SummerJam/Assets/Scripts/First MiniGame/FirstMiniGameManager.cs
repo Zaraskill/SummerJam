@@ -28,6 +28,7 @@ public class FirstMiniGameManager : MonoBehaviour
     private List<int> spawnUse;
     private List<SpawnName> points;
     private List<string> wordsInGame;
+    private string phrasing;
 
     private void Awake()
     {
@@ -50,7 +51,6 @@ public class FirstMiniGameManager : MonoBehaviour
         spawnUse = new List<int>();
         points = new List<SpawnName>();
         wordsInGame = new List<string>();
-        InitCoutdown();
     }
 
     // Update is called once per frame
@@ -66,7 +66,7 @@ public class FirstMiniGameManager : MonoBehaviour
                 countdownStart.gameObject.SetActive(false);
                 canStart = !canStart;
                 timerStart = 3f;
-                PrepareListNames("oui je suis l'enfant de la vierge et j'apporte une paix dans le monde");
+                PrepareListNames(phrasing);
             }
         }
         else
@@ -156,10 +156,12 @@ public class FirstMiniGameManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void InitCoutdown()
+    private void InitCoutdown(string sentence)
     {
         timerStart = 3f;
         countdownStart.gameObject.SetActive(true);
+        phrasing = sentence;
+
     }
 }
 
