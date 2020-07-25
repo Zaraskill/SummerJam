@@ -156,7 +156,7 @@ public class FirstMiniGameManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void InitCoutdown(string sentence)
+    public void InitCoutdown(string sentence)
     {
         timerStart = 3f;
         countdownStart.gameObject.SetActive(true);
