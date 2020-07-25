@@ -36,7 +36,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gameState = STATE.CustomerState;
+        gameState = STATE.InitNewCustomer;
+
+        if (FirstMiniGameManager.instance != null)
+        {
+            FirstMiniGameManager.instance.gameObject.transform.localScale = Vector3.zero;
+        }
     }
 
     // Update is called once per frame
@@ -140,7 +145,15 @@ public class GameManager : MonoBehaviour
         gameState = gameState + 1;
         if (gameState == STATE.MiniGameState)
         {
-            FirstMiniGameManager.instance.InitCoutdown(usableSentense);
+            if (FirstMiniGameManager.instance != null)
+            {
+                FirstMiniGameManager.instance.gameObject.transform.localScale =Vector3.one;
+                FirstMiniGameManager.instance.InitCoutdown(usableSentense);
+            }
+            else
+            {
+                Debug.LogError("No FirstMiniGameManager");
+            }
         }
     }
 }

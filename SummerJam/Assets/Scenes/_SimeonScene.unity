@@ -154,6 +154,74 @@ MonoBehaviour:
   miniGame: {fileID: 1457835176}
   isMiniGameOver: 0
   isChoiceDone: 0
+  hotels:
+  - {fileID: 11400000, guid: fbee1fe1c168cc848a6caa49414b621e, type: 2}
+  - {fileID: 11400000, guid: 65316f1726660424d8b2542fbdb7217f, type: 2}
+  - {fileID: 11400000, guid: 85f7643b9c54a3f4ab1b391c8e24886f, type: 2}
+  - {fileID: 11400000, guid: d0ef001b36c67464dad315dee21275ee, type: 2}
+  - {fileID: 11400000, guid: fc66a005901fa9849b912c02f6dd4566, type: 2}
+  - {fileID: 11400000, guid: b48406f3f6d19ea4f9fe5b79d2fa4e6a, type: 2}
+  restos:
+  - {fileID: 11400000, guid: 0bd9390a489da6c4ba05242495ddb5fa, type: 2}
+  - {fileID: 11400000, guid: 4fd2e7d0bdf4c684ab8b6a5762c2cb6e, type: 2}
+  - {fileID: 11400000, guid: 70d0694ea835c264184c2db989026ce2, type: 2}
+  - {fileID: 11400000, guid: 8ad0639bee724434087af71f8bd439bc, type: 2}
+  - {fileID: 11400000, guid: ae4bbd4c7fa03254a942d953bbb3f083, type: 2}
+  - {fileID: 11400000, guid: f23be9f3071eb494886e0517b5cb851a, type: 2}
+  sentenseHotel:
+  - "Hi, I\u2019m looking for a hotel."
+  - 'Greet my friend! Would you have a hotel to propose? '
+  - Hello you! I search a hotel.
+  sentenseHotelRoom:
+  - What do you think about the {0}?
+  - "The {0} is great, isn\u2019t it? "
+  - "Isn\u2019t it a good choice to search the {0}?"
+  sentenseResto:
+  - "Hi, I\u2019m looking for a resto."
+  - 'Greet my friend! Would you have a resto to propose? '
+  - 'Hello you! I search a resto. '
+  sentenseRestoMenu:
+  - What do you think about the {0}?
+  - "The {0} is great, isn\u2019t it? "
+  - "Isn\u2019t it a good choice to search the {0}?"
+  sentenseVisual:
+  - Do you have something kind of {0}?
+  - 'I really like the {0} style! '
+  - 'I want something with the {0} style.  '
+  sentenseDate:
+  - Do you have a place able for {0}?
+  - I need a place for {0}.
+  - It would be perfect for {0}!
+  sentensePrise:
+  - I search something {0}.
+  - "I love when it\u2019s {0}."
+  - Do you have something more or less {0}.
+  sentenseFake:
+  - "It\u2019s a sunny day! "
+  - I love eat potatoes.
+  - "My dog\u2019s name is Patrick."
+  - Cooking is my hobby.
+  - "I\u2019m practicing sport every day."
+  - I love dance.
+  - 'Celine Dindion is my favorite singer. '
+  sentenseHotelWords:
+  - Hotel
+  sentenseHotelRoomWords:
+  - Room
+  sentenseRestoWords:
+  - Resto
+  sentenseRestoMenuWords:
+  - Menu
+  sentenseVisualWords:
+  - Visual
+  sentenseDateWords:
+  - Date
+  sentensePriseWords:
+  - Prise
+  sentenseFakeWords:
+  - Fake
+  fullSentenses: []
+  usableSentense: 
 --- !u!4 &388863441
 Transform:
   m_ObjectHideFlags: 0
@@ -814,6 +882,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1897343440
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793378, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793380, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_Name
+      value: MiniGameOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145003619233, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145003619233, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145003619233, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145003619233, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145003619246, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91f21c25ef00aa54b9efe54cd515bcca, type: 3}
 --- !u!1 &2137588194
 GameObject:
   m_ObjectHideFlags: 0
