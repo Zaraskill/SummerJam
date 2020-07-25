@@ -81,7 +81,7 @@ public struct TypeServis
 public class RandomGuy : MonoBehaviour
 {
     public List<TypeServis> guyNesecities;
-    private List<string> nesecity;
+    private List<string> nesecity = new List<string>();
 
     private void Start()
     {
