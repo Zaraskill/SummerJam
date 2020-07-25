@@ -1,61 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMiniJeu2 : MonoBehaviour
 {
+    public float speedMax;
+    public float speedSlow;
+    private float speedPlay;
     private Vector3 mouseInScreen;
-    private bool isLock = false;
-    private float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speedPlay = speedMax;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         mouseInScreen = Input.mousePosition;
         mouseInScreen.z = 10;
         Vector3 mousPos = Camera.main.ScreenToWorldPoint(mouseInScreen);
-        transform.position = mousPos;
 
-        WaitUnlock();
+        Vector3 direction = mousPos - transform.position;
+
+        transform.position = Vector3.Lerp(transform.position, mousPos, Time.deltaTime * speedPlay);
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SetCursorLock();
-    }
-
-    private void WaitUnlock()
-    {
-        if (isLock)
+        if (collision.gameObject.tag == "Enemy")
         {
-            timer -= Time.deltaTime;
-
-            if (timer <= 0)
-            {
-                SetCursorUnLock();
-            }
+            speedPlay = speedSlow;
         }
     }
 
-    public void SetCursorLock()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        //Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        timer = .1f;
-        isLock = true;
+        if (collision.gameObject.tag == "Enemy")
+        {
+            speedPlay = speedMax;
+        }
     }
 
-    public void SetCursorUnLock()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Cursor.lockState = CursorLockMode.None;
-        isLock = false;
+        if (collision.tag == "Text")
+        {
+            FirstMiniGameManager.instance.GetName(collision.gameObject);
+        }
     }
 }

@@ -9,9 +9,12 @@ public class EnemmieFollo : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private float scale;
 
     private void Start()
     {
+        scale = Random.Range(3, 6);
+        transform.localScale = new Vector3(scale, scale, 1);
         if (rb != null) return;
             rb = this.GetComponent<Rigidbody2D>();
         if (rb == null)
