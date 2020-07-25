@@ -9,13 +9,17 @@ public class FirstMiniGameManager : MonoBehaviour
 
     public static FirstMiniGameManager instance;
 
+    public static bool canStart;
+
     public string[] listNamesMiniGame;
 
     public GameObject newName;
     public List<GameObject> spawnPoints;
     public float timer;
     public TextMeshPro textMesh;
+    public TextMeshPro countdownStart;
 
+    private float timerStart = 4f;
     private float timerLeft;
     private string[] fieldSeparator = { " " , "."};
     private bool[] checkValidate;
@@ -45,13 +49,29 @@ public class FirstMiniGameManager : MonoBehaviour
         spawnUse = new List<int>();
         points = new List<SpawnName>();
         wordsInGame = new List<string>();
-        PrepareListNames("oui je suis l'enfant de la vierge et j'apporte une paix dans le monde");
+        InitCoutdown();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateTime();
+        if (!canStart)
+        {
+            
+            timerStart -= Time.deltaTime;
+            countdownStart.text = timerStart.ToString("0");
+            if (timerStart <= 0)
+            {
+                countdownStart.gameObject.SetActive(false);
+                canStart = !canStart;
+                timerStart = 3f;
+                PrepareListNames("oui je suis l'enfant de la vierge et j'apporte une paix dans le monde");
+            }
+        }
+        else
+        {
+            UpdateTime();
+        }        
     }
 
     private void UpdateTime()
@@ -129,7 +149,14 @@ public class FirstMiniGameManager : MonoBehaviour
 
     public void EndGame()
     {
+        canStart = false;
+        gameObject.SetActive(false);
+    }
 
+    private void InitCoutdown()
+    {
+        timerStart = 3f;
+        countdownStart.gameObject.SetActive(true);
     }
 }
 

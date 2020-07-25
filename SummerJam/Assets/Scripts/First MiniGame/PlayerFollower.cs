@@ -19,13 +19,16 @@ public class PlayerFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseInScreen = Input.mousePosition;
-        mouseInScreen.z = 10;
-        Vector3 mousPos = Camera.main.ScreenToWorldPoint(mouseInScreen);
+        if (FirstMiniGameManager.canStart)
+        {
+            mouseInScreen = Input.mousePosition;
+            mouseInScreen.z = 10;
+            Vector3 mousPos = Camera.main.ScreenToWorldPoint(mouseInScreen);
 
-        Vector3 direction = mousPos - transform.position;
+            Vector3 direction = mousPos - transform.position;
 
-        transform.position = Vector3.Lerp(transform.position, mousPos, Time.deltaTime * speedPlay);
+            transform.position = Vector3.Lerp(transform.position, mousPos, Time.deltaTime * speedPlay);
+        }        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

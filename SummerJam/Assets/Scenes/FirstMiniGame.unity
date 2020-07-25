@@ -337,10 +337,75 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGameOne
       objectReference: {fileID: 0}
+    - target: {fileID: 159802143878019699, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143883910379, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144397588276, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144436034081, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144527145306, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144529575592, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144855529529, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802144927002821, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 159802145003619246, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145443381997, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802145748936812, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237499445550423971, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586879388520122554, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975985081636376662, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f21c25ef00aa54b9efe54cd515bcca, type: 3}
