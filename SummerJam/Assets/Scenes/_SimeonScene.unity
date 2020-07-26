@@ -988,6 +988,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186640080}
   m_CullTransparentMesh: 0
+--- !u!114 &252208205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1177353641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c7924f713241d489170408fa23b913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &388863439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1456,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grab_Book
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &642521121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1571,6 +1594,39 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Stop
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Main_music
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grab_Phone
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: PlayProgresif
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mini_Game_Music
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &671694808
@@ -2025,6 +2081,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tripvago
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grab_Book
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &737194279
@@ -2748,6 +2815,215 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1177353641
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[4].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[4].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[0].maxVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[0].initVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[3].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[3].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[2].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[2].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[1].maxVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[1].initVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[5].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[5].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[8].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[8].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[7].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[7].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[6].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[6].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[11].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[11].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[9].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[9].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[10].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[10].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[12].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[12].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[13].maxVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: sounds.Array.data[13].initVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265270875727967054, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio_Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085886121610779761, guid: 77fb8654a82c96e46adcf2818f9a768e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77fb8654a82c96e46adcf2818f9a768e, type: 3}
 --- !u!1 &1186354923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2912,6 +3188,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grab_Book
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1192493841
@@ -4713,6 +5000,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Tripvago
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252208205}
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Grab_Book
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1947489417
