@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
 
         if (FirstMiniGameManager.instance != null)
         {
-            FirstMiniGameManager.instance.gameObject.transform.localScale = Vector3.zero;
+            FirstMiniGameManager.instance.gameObject.SetActive(false);
         }
     }
 
@@ -97,32 +99,32 @@ public class GameManager : MonoBehaviour
     public void Initsentence()
     {
         // chois entre hotel et resto
-        isHotel = Random.Range(0, 2) < 1;
+        isHotel = UnityEngine.Random.Range(0, 2) < 1;
 
         // chois phrase
         if (isHotel)
         {
-            HotelSettings hotel = hotels[Random.Range(0, hotels.Count)];
-            fullSentenses.Add(string.Format(sentenseHotel[Random.Range(0, sentenseHotel.Count)], sentenseHotelWords[Random.Range(0, sentenseHotelWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseHotelRoom[Random.Range(0, sentenseHotelRoom.Count)], hotel.rooms[Random.Range(0, hotel.rooms.Count)]));
+            HotelSettings hotel = hotels[UnityEngine.Random.Range(0, hotels.Count)];
+            fullSentenses.Add(string.Format(sentenseHotel[UnityEngine.Random.Range(0, sentenseHotel.Count)], sentenseHotelWords[UnityEngine.Random.Range(0, sentenseHotelWords.Count)]));
+            fullSentenses.Add(string.Format(sentenseHotelRoom[UnityEngine.Random.Range(0, sentenseHotelRoom.Count)], hotel.rooms[UnityEngine.Random.Range(0, hotel.rooms.Count)]));
 
 
-            fullSentenses.Add(string.Format(sentenseVisual[Random.Range(0, sentenseVisual.Count)], hotel.visual));
-            fullSentenses.Add(string.Format(sentenseDate[Random.Range(0, sentenseDate.Count)], hotel.jours[0], hotel.jours[1]));
-            fullSentenses.Add(string.Format(sentensePrise[Random.Range(0, sentensePrise.Count)], hotel.prix));
-            fullSentenses.Add(string.Format(sentenseFake[Random.Range(0, sentenseFake.Count)]));
+            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], hotel.visual));
+            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], hotel.jours[0], hotel.jours[1]));
+            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], hotel.prix));
+            fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
         }
         else
         {
-            RestoSettings resto = restos[Random.Range(0, restos.Count)];
-            fullSentenses.Add(string.Format(sentenseResto[Random.Range(0, sentenseResto.Count)], sentenseRestoWords[Random.Range(0, sentenseRestoWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseRestoMenu[Random.Range(0, sentenseRestoMenu.Count)], resto.menus[Random.Range(0, resto.menus.Count)]));
+            RestoSettings resto = restos[UnityEngine.Random.Range(0, restos.Count)];
+            fullSentenses.Add(string.Format(sentenseResto[UnityEngine.Random.Range(0, sentenseResto.Count)], sentenseRestoWords[UnityEngine.Random.Range(0, sentenseRestoWords.Count)]));
+            fullSentenses.Add(string.Format(sentenseRestoMenu[UnityEngine.Random.Range(0, sentenseRestoMenu.Count)], resto.menus[UnityEngine.Random.Range(0, resto.menus.Count)]));
 
 
-            fullSentenses.Add(string.Format(sentenseVisual[Random.Range(0, sentenseVisual.Count)], resto.visual));
-            fullSentenses.Add(string.Format(sentenseDate[Random.Range(0, sentenseDate.Count)], resto.jours[0], resto.jours[1]));
-            fullSentenses.Add(string.Format(sentensePrise[Random.Range(0, sentensePrise.Count)], resto.prix));
-            fullSentenses.Add(string.Format(sentenseFake[Random.Range(0, sentenseFake.Count)]));
+            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], resto.visual));
+            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], resto.jours[0], resto.jours[1]));
+            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], resto.prix));
+            fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
         }
 
 
@@ -135,8 +137,23 @@ public class GameManager : MonoBehaviour
 
     public void DecriptString(bool[] words)
     {
+        string[] fieldSeparator = { " ", ".", ",", "?", "!" };
+        string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.RemoveEmptyEntries);
 
+        string megaString = "";
 
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (words[i])
+            {
+                megaString += wordsList[i] + " ";
+            }
+            else
+            {
+                megaString += "XXX";
+            }
+        }
+        Debug.Log(megaString);
 
         NextState();
     }
@@ -148,7 +165,7 @@ public class GameManager : MonoBehaviour
         {
             if (FirstMiniGameManager.instance != null)
             {
-                FirstMiniGameManager.instance.gameObject.transform.localScale =Vector3.one;
+                FirstMiniGameManager.instance.gameObject.SetActive(true);
                 FirstMiniGameManager.instance.InitCoutdown(usableSentense);
             }
             else
