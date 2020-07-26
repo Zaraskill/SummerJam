@@ -142,49 +142,17 @@ public class GameManager : MonoBehaviour
 
     public void DecriptString(bool[] words)
     {
-        string[] fieldSeparator = { " ", ".", ",", "?", "!" };
+        string[] fieldSeparator = { " ", ".", ",", "?", "!" , "\n"};
         string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.None);
 
-        string megaString = "";
-
-        int j = 0;
         for (int i = 0; i < words.Length; i++)
         {
-            switch (wordsList[i])
+            if (!words[i])
             {
-                case " ":
-                    megaString += " ";
-                    break;
-                case ".":
-                    megaString += ".";
-                    break;
-                case ",":
-                    megaString += ",";
-                    break;
-                case "?":
-                    megaString += "?";
-                    break;
-                case "!":
-                    megaString += "!";
-                    break;
-                case "\n":
-                    megaString += "\n";
-                    break;
-                default:
-                    if (words[j])
-                    {
-                        megaString += wordsList[i];
-                    }
-                    else
-                    {
-                        megaString += "XXX";
-                    }
-
-                    j++;
-                    break;
+                usableSentense.Replace(wordsList[i], "XXX");
             }
         }
-        Debug.Log(megaString);
+        Debug.Log(usableSentense);
 
         NextState();
     }
