@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
 
     public List<HotelSettings> hotels;
     public List<RestoSettings> restos;
+    public List<string> randomName;
+
+    [HideInInspector] public string goodHotelName;
 
     private void Awake()
     {
@@ -105,6 +108,7 @@ public class GameManager : MonoBehaviour
         if (isHotel)
         {
             HotelSettings hotel = hotels[UnityEngine.Random.Range(0, hotels.Count)];
+            goodHotelName = hotel.name;
             fullSentenses.Add(string.Format(sentenseHotel[UnityEngine.Random.Range(0, sentenseHotel.Count)], sentenseHotelWords[UnityEngine.Random.Range(0, sentenseHotelWords.Count)]));
             fullSentenses.Add(string.Format(sentenseHotelRoom[UnityEngine.Random.Range(0, sentenseHotelRoom.Count)], hotel.rooms[UnityEngine.Random.Range(0, hotel.rooms.Count)]));
 
@@ -117,6 +121,7 @@ public class GameManager : MonoBehaviour
         else
         {
             RestoSettings resto = restos[UnityEngine.Random.Range(0, restos.Count)];
+            goodHotelName = resto.name;
             fullSentenses.Add(string.Format(sentenseResto[UnityEngine.Random.Range(0, sentenseResto.Count)], sentenseRestoWords[UnityEngine.Random.Range(0, sentenseRestoWords.Count)]));
             fullSentenses.Add(string.Format(sentenseRestoMenu[UnityEngine.Random.Range(0, sentenseRestoMenu.Count)], resto.menus[UnityEngine.Random.Range(0, resto.menus.Count)]));
 
@@ -138,19 +143,45 @@ public class GameManager : MonoBehaviour
     public void DecriptString(bool[] words)
     {
         string[] fieldSeparator = { " ", ".", ",", "?", "!" };
-        string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.RemoveEmptyEntries);
+        string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.None);
 
         string megaString = "";
 
+        int j = 0;
         for (int i = 0; i < words.Length; i++)
         {
-            if (words[i])
+            switch (wordsList[i])
             {
-                megaString += wordsList[i] + " ";
-            }
-            else
-            {
-                megaString += "XXX";
+                case " ":
+                    megaString += " ";
+                    break;
+                case ".":
+                    megaString += ".";
+                    break;
+                case ",":
+                    megaString += ",";
+                    break;
+                case "?":
+                    megaString += "?";
+                    break;
+                case "!":
+                    megaString += "!";
+                    break;
+                case "\n":
+                    megaString += "\n";
+                    break;
+                default:
+                    if (words[j])
+                    {
+                        megaString += wordsList[i];
+                    }
+                    else
+                    {
+                        megaString += "XXX";
+                    }
+
+                    j++;
+                    break;
             }
         }
         Debug.Log(megaString);
