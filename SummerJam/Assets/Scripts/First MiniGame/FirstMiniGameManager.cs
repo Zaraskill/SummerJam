@@ -22,7 +22,7 @@ public class FirstMiniGameManager : MonoBehaviour
 
     private float timerStart = 4f;
     private float timerLeft;
-    private string[] fieldSeparator = { " " , ".", ",", "?", "!"};
+    private string[] fieldSeparator = { " " , ".", ",", "?", "!", "\n"};
     private bool[] checkValidate;
     private List<string> namesMiniGame;
     private List<int> spawnUse;
