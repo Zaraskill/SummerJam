@@ -58,7 +58,7 @@ public class ButtonManager : MonoBehaviour
     {
         if (display)
         {
-            //GameManager.instance.st
+            map.SetActive(true);
         }
         else
         {

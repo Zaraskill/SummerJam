@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        AudioManager.instance.Play("Main_music");
         gameState = STATE.InitNewCustomer;
 
         if (FirstMiniGameManager.instance != null)
