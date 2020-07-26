@@ -81,7 +81,7 @@ public enum Room
 public class HotelSettings : ScriptableObject
 {
     public Prix prix;
-    public Visual visuals;
+    public Visual visual;
     public List<Room> rooms;
 
     public List<Langage> langages;
@@ -92,7 +92,7 @@ public class HotelSettings : ScriptableObject
 public class RestoSettings : ScriptableObject
 {
     public Prix prix;
-    public Visual visuals;
+    public Visual visual;
     public List<Menu> menus;
 
     public List<Langage> langages;

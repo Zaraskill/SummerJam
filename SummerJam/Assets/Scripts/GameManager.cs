@@ -80,25 +80,16 @@ public class GameManager : MonoBehaviour
 
     bool isHotel = false;
     public List<string> sentenseHotel;
+    public List<string> sentenseHotelWords;
     public List<string> sentenseHotelRoom;
     public List<string> sentenseResto;
+    public List<string> sentenseRestoWords;
     public List<string> sentenseRestoMenu;
 
     public List<string> sentenseVisual;
     public List<string> sentenseDate;
     public List<string> sentensePrise;
     public List<string> sentenseFake;
-
-
-    public List<string> sentenseHotelWords;
-    public List<string> sentenseHotelRoomWords;
-    public List<string> sentenseRestoWords;
-    public List<string> sentenseRestoMenuWords;
-
-    public List<string> sentenseVisualWords;
-    public List<string> sentenseDateWords;
-    public List<string> sentensePriseWords;
-    public List<string> sentenseFakeWords;
 
     public List<string> fullSentenses = new List<string>();
     public string usableSentense;
@@ -111,19 +102,29 @@ public class GameManager : MonoBehaviour
         // chois phrase
         if (isHotel)
         {
+            HotelSettings hotel = hotels[Random.Range(0, hotels.Count)];
             fullSentenses.Add(string.Format(sentenseHotel[Random.Range(0, sentenseHotel.Count)], sentenseHotelWords[Random.Range(0, sentenseHotelWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseHotelRoom[Random.Range(0, sentenseHotelRoom.Count)], sentenseHotelRoomWords[Random.Range(0, sentenseHotelRoomWords.Count)]));
+            fullSentenses.Add(string.Format(sentenseHotelRoom[Random.Range(0, sentenseHotelRoom.Count)], hotel.rooms[Random.Range(0, hotel.rooms.Count)]));
+
+
+            fullSentenses.Add(string.Format(sentenseVisual[Random.Range(0, sentenseVisual.Count)], hotel.visual));
+            fullSentenses.Add(string.Format(sentenseDate[Random.Range(0, sentenseDate.Count)], hotel.jours[0], hotel.jours[1]));
+            fullSentenses.Add(string.Format(sentensePrise[Random.Range(0, sentensePrise.Count)], hotel.prix));
+            fullSentenses.Add(string.Format(sentenseFake[Random.Range(0, sentenseFake.Count)]));
         }
         else
         {
+            RestoSettings resto = restos[Random.Range(0, restos.Count)];
             fullSentenses.Add(string.Format(sentenseResto[Random.Range(0, sentenseResto.Count)], sentenseRestoWords[Random.Range(0, sentenseRestoWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseRestoMenu[Random.Range(0, sentenseRestoMenu.Count)], sentenseRestoMenuWords[Random.Range(0, sentenseRestoMenuWords.Count)]));
+            fullSentenses.Add(string.Format(sentenseRestoMenu[Random.Range(0, sentenseRestoMenu.Count)], resto.menus[Random.Range(0, resto.menus.Count)]));
+
+
+            fullSentenses.Add(string.Format(sentenseVisual[Random.Range(0, sentenseVisual.Count)], resto.visual));
+            fullSentenses.Add(string.Format(sentenseDate[Random.Range(0, sentenseDate.Count)], resto.jours[0], resto.jours[1]));
+            fullSentenses.Add(string.Format(sentensePrise[Random.Range(0, sentensePrise.Count)], resto.prix));
+            fullSentenses.Add(string.Format(sentenseFake[Random.Range(0, sentenseFake.Count)]));
         }
 
-        fullSentenses.Add(string.Format(sentenseHotelWords[Random.Range(0, sentenseHotelWords.Count)], sentenseVisualWords[Random.Range(0, sentenseVisualWords.Count)]));
-        fullSentenses.Add(string.Format(sentenseHotelRoomWords[Random.Range(0, sentenseHotelRoomWords.Count)], sentenseDateWords[Random.Range(0, sentenseDateWords.Count)]));
-        fullSentenses.Add(string.Format(sentenseRestoWords[Random.Range(0, sentenseRestoWords.Count)], sentensePriseWords[Random.Range(0, sentensePriseWords.Count)]));
-        fullSentenses.Add(string.Format(sentenseRestoMenuWords[Random.Range(0, sentenseRestoMenuWords.Count)], sentenseFakeWords[Random.Range(0, sentenseFakeWords.Count)]));
 
         // randomiser l'array
 
