@@ -186,6 +186,9 @@ public class FirstMiniGameManager : MonoBehaviour
         canStart = false;
         GameManager.instance.DecriptString(checkValidate);
         gameObject.SetActive(false);
+
+        AudioManager.instance.Play("Main_music");
+        AudioManager.instance.Stop("Mini_Game_Music");
     }
 
     public void InitCoutdown(string sentence)

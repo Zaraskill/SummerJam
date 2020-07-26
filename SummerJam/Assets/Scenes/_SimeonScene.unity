@@ -1620,7 +1620,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 252208205}
-        m_MethodName: PlayProgresif
+        m_MethodName: Play
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3663,7 +3663,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0.107214235, b: 0.4339623, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4845,7 +4845,7 @@ PrefabInstance:
     - target: {fileID: 159802143852793379, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
       propertyPath: timer
-      value: 70
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 159802143852793380, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
@@ -5135,7 +5135,7 @@ PrefabInstance:
     - target: {fileID: 1609708258760138582, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 1609708258760138582, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
