@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     // Start is called before the first frame update
-    public enum STATE { InitNewCustomer, CustomerState, MiniGameState, MapState, ConfirmationState, DisplayResultsState}
+    public enum STATE { InitNewCustomer, CustomerState, MiniGameState, DisplayResultsState}
 
     [SerializeField]
     private STATE gameState;
-
-    public GameObject map;
+    [SerializeField]
+    private int score;
 
     [SerializeField]
     private bool isMiniGameOver = false;
@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public List<RestoSettings> restos;
     public List<string> randomName;
     public Dialog displayDiscussion;
+    public float timeInSeconds;
+    private float timerTimeChoice;
+    private bool initTime = false;
 
     [HideInInspector] public string goodHotelName;
 
@@ -60,26 +63,27 @@ public class GameManager : MonoBehaviour
                 Initsentence();
                 break;
             case STATE.CustomerState:
-                displayDiscussion.StartDisplay(usableSentense);
+                displayDiscussion.StartDisplay(sentensToShow);
+                if (initTime)
+                {
+                    timerTimeChoice -= Time.deltaTime;
+                    if (timerTimeChoice <= 0)
+                    {
+                        initTime = false;
+                    }
+                }                
                 break;
             case STATE.MiniGameState:                
                 if(isMiniGameOver)
                 {
-                    gameState = STATE.MapState;
+                    timerTimeChoice = timeInSeconds;
+                    initTime = true;
+                    gameState = STATE.CustomerState;
                     isMiniGameOver = false;
                 }
                 break;
-            case STATE.MapState:
-                map.SetActive(true);
-                if (isChoiceDone)
-                {
-                    gameState = STATE.ConfirmationState;
-                    isChoiceDone = false;
-                }
-                break;
-            case STATE.ConfirmationState:
-                break;
             case STATE.DisplayResultsState:
+
                 break;
             default:
                 break;
@@ -113,26 +117,26 @@ public class GameManager : MonoBehaviour
         {
             HotelSettings hotel = hotels[UnityEngine.Random.Range(0, hotels.Count)];
             goodHotelName = hotel.name;
-            fullSentenses.Add(string.Format(sentenseHotel[UnityEngine.Random.Range(0, sentenseHotel.Count)], sentenseHotelWords[UnityEngine.Random.Range(0, sentenseHotelWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseHotelRoom[UnityEngine.Random.Range(0, sentenseHotelRoom.Count)], hotel.rooms[UnityEngine.Random.Range(0, hotel.rooms.Count)]));
+            fullSentenses.Add(string.Format(sentenseHotel[UnityEngine.Random.Range(0, sentenseHotel.Count)], "<color=red>"+sentenseHotelWords[UnityEngine.Random.Range(0, sentenseHotelWords.Count)]+"<color=white>"));
+            fullSentenses.Add(string.Format(sentenseHotelRoom[UnityEngine.Random.Range(0, sentenseHotelRoom.Count)], "<color=red>" + hotel.rooms[UnityEngine.Random.Range(0, hotel.rooms.Count)] + "<color=white>"));
 
 
-            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], hotel.visual));
-            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], hotel.jours[0], hotel.jours[1]));
-            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], hotel.prix));
+            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], "<color=red>" + hotel.visual + "<color=white>"));
+            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + hotel.jours[0] + "<color=white>", "<color=red>" + hotel.jours[1] + "<color=white>"));
+            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], "<color=red>" + hotel.prix + "<color=white>"));
             fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
         }
         else
         {
             RestoSettings resto = restos[UnityEngine.Random.Range(0, restos.Count)];
             goodHotelName = resto.name;
-            fullSentenses.Add(string.Format(sentenseResto[UnityEngine.Random.Range(0, sentenseResto.Count)], sentenseRestoWords[UnityEngine.Random.Range(0, sentenseRestoWords.Count)]));
-            fullSentenses.Add(string.Format(sentenseRestoMenu[UnityEngine.Random.Range(0, sentenseRestoMenu.Count)], resto.menus[UnityEngine.Random.Range(0, resto.menus.Count)]));
+            fullSentenses.Add(string.Format(sentenseResto[UnityEngine.Random.Range(0, sentenseResto.Count)], "<color=red>" + sentenseRestoWords[UnityEngine.Random.Range(0, sentenseRestoWords.Count)] + "<color=white>"));
+            fullSentenses.Add(string.Format(sentenseRestoMenu[UnityEngine.Random.Range(0, sentenseRestoMenu.Count)], "<color=red>" + resto.menus[UnityEngine.Random.Range(0, resto.menus.Count)] + "<color=white>"));
 
 
-            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], resto.visual));
-            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], resto.jours[0], resto.jours[1]));
-            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], resto.prix));
+            fullSentenses.Add(string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], "<color=red>" + resto.visual + "<color=white>"));
+            fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + resto.jours[0], "<color=red>" + resto.jours[1] + "<color=white>"));
+            fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], "<color=red>" + resto.prix + "<color=white>"));
             fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
         }
 
@@ -194,20 +198,43 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(sentensToShow);
 
-        gameState = STATE.CustomerState;
+        isMiniGameOver = true;
     }
 
     public void ResultChoice(bool win)
     {
         if (win)
         {
-
+            if (timerTimeChoice >= timeInSeconds * 0.8)
+            {
+                score += 5;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.8 && timerTimeChoice >= timeInSeconds * 0.6)
+            {
+                score += 4;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.6 && timerTimeChoice >= timeInSeconds * 0.4)
+            {
+                score += 3;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.4 && timerTimeChoice >= timeInSeconds * 0.2)
+            {
+                score += 2;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.2 && timerTimeChoice > 0)
+            {
+                score += 1;
+            }
+            else
+            {
+                score += 0;
+            }
         }
         else
         {
-
+            score += 0;
         }
-        NextState();
+        gameState = STATE.DisplayResultsState;
     }
 
     public void NextState()

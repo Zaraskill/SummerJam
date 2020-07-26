@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    private string place;
+    public string place;
 
     public GameObject validation;
     public GameObject book;
