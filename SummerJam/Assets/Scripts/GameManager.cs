@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private STATE gameState;
 
-    public GameObject miniGame;
+    public GameObject map;
 
     [SerializeField]
     private bool isMiniGameOver = false;
@@ -59,8 +59,7 @@ public class GameManager : MonoBehaviour
                 break;
             case STATE.CustomerState:
                 break;
-            case STATE.MiniGameState:
-                miniGame.SetActive(true);
+            case STATE.MiniGameState:                
                 if(isMiniGameOver)
                 {
                     gameState = STATE.MapState;
@@ -68,7 +67,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case STATE.MapState:
-                if(isChoiceDone)
+                map.SetActive(true);
+                if (isChoiceDone)
                 {
                     gameState = STATE.ConfirmationState;
                     isChoiceDone = false;
@@ -159,6 +159,19 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(usableSentense);
 
+        NextState();
+    }
+
+    public void ResultChoice(bool win)
+    {
+        if (win)
+        {
+
+        }
+        else
+        {
+
+        }
         NextState();
     }
 
