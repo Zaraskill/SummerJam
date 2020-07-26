@@ -149,12 +149,47 @@ public class GameManager : MonoBehaviour
         {
             if (!words[i])
             {
-                usableSentense = usableSentense.Replace(" "+wordsList[i] + " ", "XXX");
-                usableSentense = usableSentense.Replace(" "+wordsList[i] + ".", "XXX");
-                usableSentense = usableSentense.Replace(" "+wordsList[i] + ",", "XXX");
-                usableSentense = usableSentense.Replace(" "+wordsList[i] + "?", "XXX");
-                usableSentense = usableSentense.Replace(" "+wordsList[i] + "!", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + " ", " " + "XXX" + " ");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + ".", " "+ "XXX" + ".");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + ",", " "+"XXX" + ",");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + "?", " "+"XXX" + "?");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + "!", " "+"XXX" + "!");
                 usableSentense = usableSentense.Replace(" "+wordsList[i], "XXX");
+                usableSentense = usableSentense.Replace("X"+wordsList[i] + " ", "X" + "XXX" + " ");
+                usableSentense = usableSentense.Replace("X"+wordsList[i] + ".", "X"+ "XXX" + ".");
+                usableSentense = usableSentense.Replace("X"+wordsList[i] + ",", "X"+"XXX" + ",");
+                usableSentense = usableSentense.Replace("X"+wordsList[i] + "?", "X"+"XXX" + "?");
+                usableSentense = usableSentense.Replace("X"+wordsList[i] + "!", "X"+"XXX" + "!");
+                usableSentense = usableSentense.Replace("X"+wordsList[i], "XXXX");
+                usableSentense = usableSentense.Replace("!" + wordsList[i] + " ", "!" + "XXX" + " ");
+                usableSentense = usableSentense.Replace("!" + wordsList[i] + ".", "!" + "XXX" + ".");
+                usableSentense = usableSentense.Replace("!" + wordsList[i] + ",", "!" + "XXX" + ",");
+                usableSentense = usableSentense.Replace("!" + wordsList[i] + "?", "!" + "XXX" + "?");
+                usableSentense = usableSentense.Replace("!" + wordsList[i] + "!", "!" + "XXX" + "!");
+                usableSentense = usableSentense.Replace("!" + wordsList[i], "!XXX");
+                usableSentense = usableSentense.Replace("." + wordsList[i] + " ", "." + "XXX" + " ");
+                usableSentense = usableSentense.Replace("." + wordsList[i] + ".", "." + "XXX" + ".");
+                usableSentense = usableSentense.Replace("." + wordsList[i] + ",", "." + "XXX" + ",");
+                usableSentense = usableSentense.Replace("." + wordsList[i] + "?", "." + "XXX" + "?");
+                usableSentense = usableSentense.Replace("." + wordsList[i] + "!", "." + "XXX" + "!");
+                usableSentense = usableSentense.Replace("." + wordsList[i], ".XXX");
+                usableSentense = usableSentense.Replace("," + wordsList[i] + " ", "," + "XXX" + " ");
+                usableSentense = usableSentense.Replace("," + wordsList[i] + ".", "," + "XXX" + ".");
+                usableSentense = usableSentense.Replace("," + wordsList[i] + ",", "," + "XXX" + ",");
+                usableSentense = usableSentense.Replace("," + wordsList[i] + "?", "," + "XXX" + "?");
+                usableSentense = usableSentense.Replace("," + wordsList[i] + "!", "," + "XXX" + "!");
+                usableSentense = usableSentense.Replace("," + wordsList[i], ",XXX");
+                usableSentense = usableSentense.Replace("?" + wordsList[i] + " ", "?" + "XXX" + " ");
+                usableSentense = usableSentense.Replace("?" + wordsList[i] + ".", "?" + "XXX" + ".");
+                usableSentense = usableSentense.Replace("?" + wordsList[i] + ",", "?" + "XXX" + ",");
+                usableSentense = usableSentense.Replace("?" + wordsList[i] + "?", "?" + "XXX" + "?");
+                usableSentense = usableSentense.Replace("?" + wordsList[i] + "!", "?" + "XXX" + "!");
+                usableSentense = usableSentense.Replace("?" + wordsList[i], "?XXX");
+                usableSentense = usableSentense.Replace(wordsList[i] + " ","XXX" + " ");
+                usableSentense = usableSentense.Replace(wordsList[i] + ".","XXX" + ".");
+                usableSentense = usableSentense.Replace(wordsList[i] + ",","XXX" + ",");
+                usableSentense = usableSentense.Replace(wordsList[i] + "?","XXX" + "?");
+                usableSentense = usableSentense.Replace(wordsList[i] + "!","XXX" + "!");
             }
         }
         Debug.Log(usableSentense);

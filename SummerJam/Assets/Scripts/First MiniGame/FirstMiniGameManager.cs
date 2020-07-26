@@ -87,9 +87,13 @@ public class FirstMiniGameManager : MonoBehaviour
 
     public void GenerateName()
     {
-        int randomName;
-        int randomSpawn;
+        int randomName = -1;
+        int randomSpawn = -1;
+        List<int> vs = new List<int>();
 
+        namesMiniGame = Shuffle.DoShuffle(namesMiniGame);
+
+        /*
         do
         {
             randomSpawn = UnityEngine.Random.Range(0, spawnPoints.Count);
@@ -99,6 +103,38 @@ public class FirstMiniGameManager : MonoBehaviour
         {
             randomName = UnityEngine.Random.Range(0, namesMiniGame.Count);
         } while (wordsInGame.Contains(namesMiniGame[randomName]));
+        */
+
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (!spawnUse.Contains(i))
+            {
+                randomSpawn = i;
+                vs.Add(randomSpawn);
+            }
+        }
+        if (vs.Count <= 0)
+        {
+            return;
+        }
+        else
+        {
+            randomSpawn = Shuffle.DoShuffle(vs)[0];
+            spawnUse.Add(randomSpawn);
+        }
+
+        for (int i = 0; i < namesMiniGame.Count; i++)
+        {
+            if (!wordsInGame.Contains(namesMiniGame[i]))
+            {
+                randomName = i;
+                break;
+            }
+        }
+        if (randomName == -1)
+        {
+            return;
+        }
 
         wordsInGame.Add(namesMiniGame[randomName]);
         GameObject obj = Instantiate(newName, gameObject.transform);
@@ -116,9 +152,7 @@ public class FirstMiniGameManager : MonoBehaviour
         wordsInGame.Remove(wordFind);
         namesMiniGame.Remove(wordFind);
         SpawnName spawn = points.Find(point => point.word == wordFind);
-        spawnUse.Remove(spawn.spawnPoint);
-        points.Remove(spawn);
-        Destroy(word);   
+        Destroy(word);
         if (namesMiniGame.Count == 0)
         {
             EndGame();
@@ -127,6 +161,9 @@ public class FirstMiniGameManager : MonoBehaviour
         {
             GenerateName();
         }
+
+        spawnUse.Remove(spawn.spawnPoint);
+        points.Remove(spawn);
     }
 
     public void PrepareListNames(string sentence)
