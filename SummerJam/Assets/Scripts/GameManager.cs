@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public enum STATE { InitNewCustomer, CustomerState, MiniGameState, DisplayResultsState}
 
     [SerializeField]
-    private STATE gameState;
+    public STATE gameState;
     [SerializeField]
     private int score;
 
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public List<string> fullSentenses = new List<string>();
     private string usableSentense;
-    public string sentensToShow = "J'ai rien compris ^^";
+    public string sentensToShow = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 
     public void Initsentence()
     {
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
 
         usableSentense = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n", fullSentenses[0], fullSentenses[1], fullSentenses[2], fullSentenses[3], fullSentenses[4], fullSentenses[5]);
 
-        NextState();
+        gameState = STATE.CustomerState;
     }
 
     public void DecriptString(bool[] words)
@@ -293,9 +293,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine("WaitingForAnim");
     }
 
-    public void NextState()
+    public void NextState(STATE state)
     {
-        gameState = gameState + 1;
+        gameState = state;
         if (gameState == STATE.MiniGameState)
         {
             if (FirstMiniGameManager.instance != null)
