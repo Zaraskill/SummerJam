@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     // Start is called before the first frame update
-    public enum STATE { InitNewCustomer, CustomerState, MiniGameState, MapState, ConfirmationState, DisplayResultsState}
+    public enum STATE { InitNewCustomer, CustomerState, MiniGameState, DisplayResultsState}
 
     [SerializeField]
     private STATE gameState;
-
-    public GameObject map;
+    [SerializeField]
+    private int score;
 
     [SerializeField]
     private bool isMiniGameOver = false;
@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public List<RestoSettings> restos;
     public List<string> randomName;
     public Dialog displayDiscussion;
+    public float timeInSeconds;
+    private float timerTimeChoice;
+    private bool initTime = false;
 
     [HideInInspector] public string goodHotelName;
 
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.instance.Play("Main_music");
+        //AudioManager.instance.Play("Main_music");
         gameState = STATE.InitNewCustomer;
 
         if (FirstMiniGameManager.instance != null)
@@ -60,24 +63,24 @@ public class GameManager : MonoBehaviour
                 Initsentence();
                 break;
             case STATE.CustomerState:
-                displayDiscussion.StartDisplay(usableSentense);
+                displayDiscussion.StartDisplay(sentensToShow);
+                if (initTime)
+                {
+                    timerTimeChoice -= Time.deltaTime;
+                    if (timerTimeChoice <= 0)
+                    {
+                        initTime = false;
+                    }
+                }                
                 break;
             case STATE.MiniGameState:                
                 if(isMiniGameOver)
                 {
-                    gameState = STATE.MapState;
+                    timerTimeChoice = timeInSeconds;
+                    initTime = true;
+                    gameState = STATE.CustomerState;
                     isMiniGameOver = false;
                 }
-                break;
-            case STATE.MapState:
-                map.SetActive(true);
-                if (isChoiceDone)
-                {
-                    gameState = STATE.ConfirmationState;
-                    isChoiceDone = false;
-                }
-                break;
-            case STATE.ConfirmationState:
                 break;
             case STATE.DisplayResultsState:
                 break;
@@ -194,20 +197,43 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(sentensToShow);
 
-        gameState = STATE.CustomerState;
+        isMiniGameOver = true;
     }
 
     public void ResultChoice(bool win)
     {
         if (win)
         {
-
+            if (timerTimeChoice >= timeInSeconds * 0.8)
+            {
+                score += 5;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.8 && timerTimeChoice >= timeInSeconds * 0.6)
+            {
+                score += 4;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.6 && timerTimeChoice >= timeInSeconds * 0.4)
+            {
+                score += 3;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.4 && timerTimeChoice >= timeInSeconds * 0.2)
+            {
+                score += 2;
+            }
+            else if (timerTimeChoice < timeInSeconds * 0.2 && timerTimeChoice > 0)
+            {
+                score += 1;
+            }
+            else
+            {
+                score += 0;
+            }
         }
         else
         {
-
+            score += 0;
         }
-        NextState();
+        gameState = STATE.DisplayResultsState;
     }
 
     public void NextState()
