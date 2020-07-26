@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public List<HotelSettings> hotels;
     public List<RestoSettings> restos;
     public List<string> randomName;
+    public Dialog displayDiscussion;
 
     [HideInInspector] public string goodHotelName;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
                 Initsentence();
                 break;
             case STATE.CustomerState:
+                displayDiscussion.StartDisplay(usableSentense);
                 break;
             case STATE.MiniGameState:                
                 if(isMiniGameOver)
@@ -135,7 +137,7 @@ public class GameManager : MonoBehaviour
 
         // randomiser l'array
 
-        usableSentense = string.Format("{0} /n{1}/n{2} /n{3}/n{4} /n{5}/n", fullSentenses[0], fullSentenses[1], fullSentenses[2], fullSentenses[3], fullSentenses[4], fullSentenses[5]);
+        usableSentense = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n", fullSentenses[0], fullSentenses[1], fullSentenses[2], fullSentenses[3], fullSentenses[4], fullSentenses[5]);
 
         NextState();
     }
@@ -194,7 +196,7 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(usableSentense);
 
-        NextState();
+        gameState = STATE.CustomerState;
     }
 
     public void ResultChoice(bool win)
