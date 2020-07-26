@@ -22,11 +22,11 @@ public class FirstMiniGameManager : MonoBehaviour
 
     private float timerStart = 4f;
     private float timerLeft;
-    private string[] fieldSeparator = { " " , ".", ",", "?", "!"};
+    private string[] fieldSeparator = { " " , ".", ",", "?", "!", "\n"};
     private bool[] checkValidate;
     private List<string> namesMiniGame;
-    private List<int> spawnUse;
-    private List<SpawnName> points;
+    public List<int> spawnUse;
+    public List<SpawnName> points;
     private List<string> wordsInGame;
     private string phrasing;
 
@@ -90,28 +90,21 @@ public class FirstMiniGameManager : MonoBehaviour
         int randomName;
         int randomSpawn;
 
-        while (true)
+        do
         {
             randomSpawn = UnityEngine.Random.Range(0, spawnPoints.Count);
-
-            if (!spawnUse.Contains(randomSpawn))
-            {
-                spawnUse.Add(randomSpawn);
-                break;
-            }         
-        }
-        while (true)
+        } while (spawnUse.Contains(randomSpawn));
+        spawnUse.Add(randomSpawn);
+        do
         {
             randomName = UnityEngine.Random.Range(0, namesMiniGame.Count);
-            if (!wordsInGame.Contains(namesMiniGame[randomName]))
-            {
-                wordsInGame.Add(namesMiniGame[randomName]);
-                GameObject obj = Instantiate(newName, gameObject.transform);
-                obj.transform.position = spawnPoints[randomSpawn].transform.position;
-                obj.GetComponent<TextMeshPro>().text = namesMiniGame[randomName];
-                break;
-            }
-        }     
+        } while (wordsInGame.Contains(namesMiniGame[randomName]));
+
+        wordsInGame.Add(namesMiniGame[randomName]);
+        GameObject obj = Instantiate(newName, gameObject.transform);
+        obj.transform.position = spawnPoints[randomSpawn].transform.position;
+        obj.GetComponent<TextMeshPro>().text = namesMiniGame[randomName];
+
         points.Add(new SpawnName(randomSpawn, namesMiniGame[randomName]));
     }
 
@@ -122,8 +115,9 @@ public class FirstMiniGameManager : MonoBehaviour
         checkValidate[index] = true;
         wordsInGame.Remove(wordFind);
         namesMiniGame.Remove(wordFind);
-        int spawn = points.Find(point => point.word == wordFind).spawnPoint;
-        spawnUse.Remove(spawn);               
+        SpawnName spawn = points.Find(point => point.word == wordFind);
+        spawnUse.Remove(spawn.spawnPoint);
+        points.Remove(spawn);
         Destroy(word);   
         if (namesMiniGame.Count == 0)
         {
