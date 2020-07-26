@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/_SimeonScene.unity
+    guid: 0633c75ccb0b50f46a23d4a08405cbd0
   m_configObjects: {}

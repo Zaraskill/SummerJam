@@ -13,6 +13,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject buttonRight;
     public Image pages;
     public GameObject map;
+    public GameObject card;
     public GameObject phone;
 
     public List<Sprite> pagesBook;
@@ -46,11 +47,10 @@ public class ButtonManager : MonoBehaviour
             {
                 GameManager.instance.ResultChoice(false);
             }
+            map.SetActive(false);
         }
-        else
-        {
-            validation.SetActive(false);
-        }
+        validation.SetActive(false);
+        
         
     }
 
@@ -63,6 +63,20 @@ public class ButtonManager : MonoBehaviour
         else
         {
             map.SetActive(false);
+        }
+        
+    }
+
+    public void OnClickDisplayCard(bool display)
+    {
+        if (display)
+        {
+            card.SetActive(true);
+            GameManager.instance.ClientName();
+        }
+        else
+        {
+            card.SetActive(false);
         }
         
     }

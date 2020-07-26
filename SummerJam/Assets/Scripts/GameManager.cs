@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +17,16 @@ public class GameManager : MonoBehaviour
     private STATE gameState;
     [SerializeField]
     private int score;
+
+    public List<GameObject> clients;
+    public GameObject parentInstance;
+    public GameObject client;
+    private bool init = true;
+    public TextMeshProUGUI scoreText;
+
+    public TextMeshProUGUI nameClient;
+    public TextMeshProUGUI surnameClient;
+    public TextMeshProUGUI language;
 
     [SerializeField]
     private bool isMiniGameOver = false;
@@ -30,6 +42,7 @@ public class GameManager : MonoBehaviour
     private bool initTime = false;
 
     [HideInInspector] public string goodHotelName;
+    public Langage langue;
 
     private void Awake()
     {
@@ -60,7 +73,10 @@ public class GameManager : MonoBehaviour
         switch(gameState)
         {
             case STATE.InitNewCustomer:
-                Initsentence();
+                if (init)
+                {
+                    InstantiateNewClient();
+                }                
                 break;
             case STATE.CustomerState:
                 displayDiscussion.StartDisplay(sentensToShow);
@@ -70,6 +86,14 @@ public class GameManager : MonoBehaviour
                     if (timerTimeChoice <= 0)
                     {
                         initTime = false;
+                    }
+                    if (timerTimeChoice <= timeInSeconds * 0.6)
+                    {
+                        client.GetComponent<Image>().sprite = client.GetComponent<Client>().noReaction;
+                    }
+                    if (timerTimeChoice <= timeInSeconds * 0.3)
+                    {
+                        client.GetComponent<Image>().sprite = client.GetComponent<Client>().angry;
                     }
                 }                
                 break;
@@ -83,7 +107,14 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case STATE.DisplayResultsState:
-
+                if (!init)
+                {
+                    sentensToShow = "";
+                    displayDiscussion.StartDisplay(sentensToShow);
+                    init = true;
+                    client.GetComponent<Animator>().SetBool("leaving", true);
+                    StartCoroutine("WaitingForLeave");
+                }                
                 break;
             default:
                 break;
@@ -125,6 +156,7 @@ public class GameManager : MonoBehaviour
             fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + hotel.jours[0] + "<color=white>", "<color=red>" + hotel.jours[1] + "<color=white>"));
             fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], "<color=red>" + hotel.prix + "<color=white>"));
             fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
+            langue = hotel.langages[UnityEngine.Random.Range(0, hotel.langages.Count)];
         }
         else
         {
@@ -138,6 +170,7 @@ public class GameManager : MonoBehaviour
             fullSentenses.Add(string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + resto.jours[0], "<color=red>" + resto.jours[1] + "<color=white>"));
             fullSentenses.Add(string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], "<color=red>" + resto.prix + "<color=white>"));
             fullSentenses.Add(string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
+            langue = resto.langages[UnityEngine.Random.Range(0, resto.langages.Count)];
         }
 
 
@@ -234,7 +267,30 @@ public class GameManager : MonoBehaviour
         {
             score += 0;
         }
+        scoreText.text = score.ToString();
         gameState = STATE.DisplayResultsState;
+    }
+
+    public void InstantiateNewClient()
+    {
+        init = false;
+        int random = UnityEngine.Random.Range(0, 4);
+        switch (random)
+        {
+            case 0:
+                client = Instantiate(clients[0], parentInstance.transform);
+                break;
+            case 1:
+                client = Instantiate(clients[1], parentInstance.transform);
+                break;
+            case 2:
+                client = Instantiate(clients[2], parentInstance.transform);
+                break;
+            case 3:
+                client = Instantiate(clients[3], parentInstance.transform);
+                break;
+        }
+        StartCoroutine("WaitingForAnim");
     }
 
     public void NextState()
@@ -252,5 +308,26 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("No FirstMiniGameManager");
             }
         }
+    }
+
+    public void ClientName()
+    {
+        nameClient.text = client.GetComponent<Client>().nameClient[1];
+        surnameClient.text = client.GetComponent<Client>().nameClient[0];
+        language.text = client.GetComponent<Client>().language.ToString();
+    }
+
+    IEnumerator WaitingForAnim()
+    {
+        yield return new WaitForSeconds(2.5f);
+        Initsentence();
+    }
+
+    IEnumerator WaitingForLeave()
+    {
+        yield return new WaitForSeconds(2.5f);
+        gameState = STATE.InitNewCustomer;
+        Destroy(client);
+        sentensToShow = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     }
 }
