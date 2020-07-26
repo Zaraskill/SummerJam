@@ -6,30 +6,31 @@ using TMPro;
 public class Dialog : MonoBehaviour
 {
     public TextMeshProUGUI textDisplay;
-    public string[] sentences;
+    public string sentences;
     private int index;
     public float typingSpeed;
 
-    public GameObject continueButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TypeEffect());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(textDisplay.text == sentences[index])
-        {
-            continueButton.SetActive(true);
-        }
+
+    }
+
+    public void StartDisplay(string phrase)
+    {
+        sentences = phrase;
+        textDisplay.text = phrase;
+        //StartCoroutine(TypeEffect());
     }
 
     public void NextSentence()
     {
-        continueButton.SetActive(false);
 
         if(index < sentences.Length - 1)
         {
@@ -40,13 +41,12 @@ public class Dialog : MonoBehaviour
         else
         {
             textDisplay.text = "";
-            continueButton.SetActive(false);
         }
     }
 
     IEnumerator TypeEffect()
     {
-        foreach(char letter in sentences[index].ToCharArray())
+        foreach(char letter in sentences)
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
