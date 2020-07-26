@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4265270875727967054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5085886121610779761}
+  - component: {fileID: 1151005837389593799}
+  m_Layer: 0
+  m_Name: Audio_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5085886121610779761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265270875727967054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151005837389593799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4265270875727967054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c7924f713241d489170408fa23b913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Main_music
+    clip: {fileID: 8300000, guid: 02325b02fa2ee1249a555e84a8c2c2dd, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Mini_Game_Music
+    clip: {fileID: 8300000, guid: 97d9abe5a7a75d248a02bb9400f9df65, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Door_Sound
+    clip: {fileID: 8300000, guid: e0b2924b229997d49affa61451cdc151, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Grab_Book
+    clip: {fileID: 8300000, guid: 683eaab07138151479bf7e4345551adf, type: 3}
+    volume: 0.76
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Grab_Phone
+    clip: {fileID: 8300000, guid: 6b53faafc1c71fa49ae213a75ab65948, type: 3}
+    volume: 0.779
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Word_Pick_Up
+    clip: {fileID: 8300000, guid: 183f4d71d4056ef40be332f861168390, type: 3}
+    volume: 0.504
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Female_Talk1
+    clip: {fileID: 8300000, guid: aeef625cd7b44484eb4c5d6eaf78565b, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Female_Talk2
+    clip: {fileID: 8300000, guid: aaf5a4dbc4b53c04d80c58cf603a04ad, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Female_Talk3
+    clip: {fileID: 8300000, guid: 0993cfa7d31705a4a84e49dc44a1ef45, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Female_Talk4
+    clip: {fileID: 8300000, guid: e5a4ed4d71681ff43af35a1464f33453, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Male_Talk1
+    clip: {fileID: 8300000, guid: 51e342ecaa900814db3c84fdae07881f, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Male_Talk2
+    clip: {fileID: 8300000, guid: f248d99d9f731144d82dfa7a53bc222d, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Male_Talk3
+    clip: {fileID: 8300000, guid: a19b2845da548c44cac5080c31ee1ad5, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Male_Talk4
+    clip: {fileID: 8300000, guid: 6bdb80dc4923c5d43bb3a1dadd9b09b1, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
