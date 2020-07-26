@@ -143,13 +143,18 @@ public class GameManager : MonoBehaviour
     public void DecriptString(bool[] words)
     {
         string[] fieldSeparator = { " ", ".", ",", "?", "!" , "\n"};
-        string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.None);
+        string[] wordsList = usableSentense.Split(fieldSeparator, StringSplitOptions.RemoveEmptyEntries);
 
         for (int i = 0; i < words.Length; i++)
         {
             if (!words[i])
             {
-                usableSentense.Replace(wordsList[i], "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + " ", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + ".", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + ",", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + "?", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i] + "!", "XXX");
+                usableSentense = usableSentense.Replace(" "+wordsList[i], "XXX");
             }
         }
         Debug.Log(usableSentense);

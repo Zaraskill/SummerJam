@@ -168,10 +168,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ad0639bee724434087af71f8bd439bc, type: 2}
   - {fileID: 11400000, guid: ae4bbd4c7fa03254a942d953bbb3f083, type: 2}
   - {fileID: 11400000, guid: f23be9f3071eb494886e0517b5cb851a, type: 2}
+  randomName: []
+  goodHotelName: 
   sentenseHotel:
   - "Hi, I\u2019m looking for a hotel."
   - 'Greet my friend! Would you have a hotel to propose? '
   - Hello you! I search a hotel.
+  sentenseHotelWords:
+  - Hotel
   sentenseHotelRoom:
   - What do you think about the {0}?
   - "The {0} is great, isn\u2019t it? "
@@ -180,6 +184,8 @@ MonoBehaviour:
   - "Hi, I\u2019m looking for a resto."
   - 'Greet my friend! Would you have a resto to propose? '
   - 'Hello you! I search a resto. '
+  sentenseRestoWords:
+  - Resto
   sentenseRestoMenu:
   - What do you think about the {0}?
   - "The {0} is great, isn\u2019t it? "
@@ -204,22 +210,6 @@ MonoBehaviour:
   - "I\u2019m practicing sport every day."
   - I love dance.
   - 'Celine Dindion is my favorite singer. '
-  sentenseHotelWords:
-  - Hotel
-  sentenseHotelRoomWords:
-  - Room
-  sentenseRestoWords:
-  - Resto
-  sentenseRestoMenuWords:
-  - Menu
-  sentenseVisualWords:
-  - Visual
-  sentenseDateWords:
-  - Date
-  sentensePriseWords:
-  - Prise
-  sentenseFakeWords:
-  - Fake
   fullSentenses: []
   usableSentense: 
 --- !u!4 &388863441
@@ -943,6 +933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 159802143852793379, guid: 91f21c25ef00aa54b9efe54cd515bcca,
+        type: 3}
+      propertyPath: timer
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 159802143852793380, guid: 91f21c25ef00aa54b9efe54cd515bcca,
         type: 3}
