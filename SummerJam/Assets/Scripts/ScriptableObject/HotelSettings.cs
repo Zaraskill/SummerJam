@@ -88,13 +88,4 @@ public class HotelSettings : ScriptableObject
     public List<Jour> jours;
 }
 
-[CreateAssetMenu(menuName = "Resto Setting")]
-public class RestoSettings : ScriptableObject
-{
-    public Prix prix;
-    public Visual visual;
-    public List<Menu> menus;
 
-    public List<Langage> langages;
-    public List<Jour> jours;
-}

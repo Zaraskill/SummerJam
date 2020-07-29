@@ -35,22 +35,15 @@ public class FirstMiniGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            timerLeft = timer;
+            spawnUse = new List<int>();
+            points = new List<SpawnName>();
+            wordsInGame = new List<string>();
         }
         else
         {
             Destroy(this.gameObject);
         }
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        timerLeft = timer;
-        spawnUse = new List<int>();
-        points = new List<SpawnName>();
-        wordsInGame = new List<string>();
     }
 
     // Update is called once per frame
