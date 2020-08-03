@@ -5,21 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public enum Prix
 {
-    haut,
-    moyen,
-    bas,
+    expensive,
+    medium,
+    cheap,
 }
 
 [System.Serializable]
 public enum Jour
 {
-    lundi,
-    mardi,
-    mercredi,
-    jeudi,
-    vendredi,
-    samedi,
-    dimanche
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday
 }
 
 [System.Serializable]

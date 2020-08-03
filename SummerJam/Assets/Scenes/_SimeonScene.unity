@@ -1439,7 +1439,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc66a005901fa9849b912c02f6dd4566, type: 2}
   - {fileID: 11400000, guid: b48406f3f6d19ea4f9fe5b79d2fa4e6a, type: 2}
   restos:
-  - {fileID: 11400000, guid: 0bd9390a489da6c4ba05242495ddb5fa, type: 2}
+  - {fileID: 11400000, guid: 955ae40e9b89615499ed6161472afba0, type: 2}
   - {fileID: 11400000, guid: 4fd2e7d0bdf4c684ab8b6a5762c2cb6e, type: 2}
   - {fileID: 11400000, guid: 70d0694ea835c264184c2db989026ce2, type: 2}
   - {fileID: 11400000, guid: 8ad0639bee724434087af71f8bd439bc, type: 2}
@@ -1514,7 +1514,13 @@ MonoBehaviour:
   - "I\u2019m practicing sport every day."
   - I love dance.
   - 'Celine Dindion is my favorite singer. '
-  fullSentenses: []
+  fullSentenses:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   sentensToShow: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 --- !u!4 &388863441
 Transform:
@@ -6161,7 +6167,7 @@ PrefabInstance:
     - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
         type: 3}
       propertyPath: sounds.Array.data[1].maxVolume
-      value: 0.5
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1151005837389593799, guid: 77fb8654a82c96e46adcf2818f9a768e,
         type: 3}
@@ -6962,6 +6968,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5719ec69fdaf95a469e3611c704ddcdc, type: 3}
   - {fileID: 21300000, guid: 3eaf6ff26c247b84fbae2de0a1e5d84a, type: 3}
   - {fileID: 21300000, guid: 0878605b3117e0041a31de4e5c73a0f8, type: 3}
+  - {fileID: 21300000, guid: f5baa7a05b64c934bbb027da2fb8ada2, type: 3}
+  - {fileID: 21300000, guid: 594cfaeba9745174fb3d8731f018f181, type: 3}
 --- !u!4 &1220984783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4553994003712715429, guid: 648430532927b8040ad8b56b0f5d0b26,
