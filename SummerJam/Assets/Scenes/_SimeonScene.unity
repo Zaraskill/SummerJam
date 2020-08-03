@@ -1472,6 +1472,7 @@ MonoBehaviour:
   - 'Jasmin T. Poulsen '
   displayDiscussion: {fileID: 1644781896}
   timeInSeconds: 120
+  canPlayMiniGame: 0
   goodHotelName: 
   langue: 0
   sentenseHotel:

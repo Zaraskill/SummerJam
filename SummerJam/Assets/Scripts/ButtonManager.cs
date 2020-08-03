@@ -83,7 +83,10 @@ public class ButtonManager : MonoBehaviour
 
     public void OnClickDisplayMiniGame()
     {
-        GameManager.instance.NextState(GameManager.STATE.MiniGameState);
+        if (GameManager.instance.canPlayMiniGame)
+        {
+            GameManager.instance.NextState(GameManager.STATE.MiniGameState);
+        }        
     }
 
     public void OnClickDisplayBook(bool display)

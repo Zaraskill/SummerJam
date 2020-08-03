@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public float timeInSeconds;
     private float timerTimeChoice;
     private bool initTime = false;
+    [HideInInspector] public bool canPlayMiniGame;
 
     [HideInInspector] public string goodHotelName;
     public Langage langue;
@@ -280,6 +281,7 @@ public class GameManager : MonoBehaviour
     public void InstantiateNewClient()
     {
         init = false;
+        canPlayMiniGame = true;
         int random = UnityEngine.Random.Range(0, 4);
         switch (random)
         {
