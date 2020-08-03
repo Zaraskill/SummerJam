@@ -147,8 +147,9 @@ public class GameManager : MonoBehaviour
     public void Initsentence()
     {
         // chois entre hotel et resto
-        //isHotel = UnityEngine.Random.Range(0, 2) < 1;
-        isHotel = false;
+        isHotel = UnityEngine.Random.Range(0, 2) < 1;
+
+
         // chois phrase
         if (isHotel)
         {
@@ -173,7 +174,7 @@ public class GameManager : MonoBehaviour
 
 
             fullSentenses[2] = (string.Format(sentenseVisual[UnityEngine.Random.Range(0, sentenseVisual.Count)], "<color=red>" + resto.visual + "<color=white>"));
-            fullSentenses[3] = (string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + resto.jours[0], "<color=red>" + resto.jours[1] + "<color=white>"));
+            fullSentenses[3] = (string.Format(sentenseDate[UnityEngine.Random.Range(0, sentenseDate.Count)], "<color=red>" + resto.jours[UnityEngine.Random.Range(0, resto.jours.Count)] + "<color=white>"));
             fullSentenses[4] = (string.Format(sentensePrise[UnityEngine.Random.Range(0, sentensePrise.Count)], "<color=red>" + resto.prix + "<color=white>"));
             fullSentenses[5] = (string.Format(sentenseFake[UnityEngine.Random.Range(0, sentenseFake.Count)]));
             langue = resto.langages[UnityEngine.Random.Range(0, resto.langages.Count)];

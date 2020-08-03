@@ -35,7 +35,6 @@ public class FirstMiniGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            timerLeft = timer;
             spawnUse = new List<int>();
             points = new List<SpawnName>();
             wordsInGame = new List<string>();
@@ -189,7 +188,8 @@ public class FirstMiniGameManager : MonoBehaviour
         timerStart = 3f;
         countdownStart.gameObject.SetActive(true);
         phrasing = sentence;
-
+        timerLeft = timer;
+        textMesh.text = timerLeft.ToString("00.00");
     }
 }
 
