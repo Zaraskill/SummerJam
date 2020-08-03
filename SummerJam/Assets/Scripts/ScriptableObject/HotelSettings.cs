@@ -27,7 +27,7 @@ public enum Visual
 {
     Ancient,
     Modern,
-    Atypique,
+    Atypical,
 }
 
 [System.Serializable]
@@ -35,7 +35,7 @@ public enum Langage
 {
     Isou,
     Apotrick,
-    Topipozo,
+    Tropipozo,
     Mar_a_boote,
     Topine_en_Bour,
     Claf_Outi,

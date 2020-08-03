@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tripvago
   m_EditorClassIdentifier: 
   prix: 2
-  visuals: 1
+  visual: 1
   rooms: 02000000090000000800000000000000
   langages: 0000000007000000
   jours: 0500000006000000

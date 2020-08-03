@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Silver Galaxy
   m_EditorClassIdentifier: 
   prix: 0
-  visuals: 1
+  visual: 1
   rooms: 0700000004000000030000000a000000
   langages: 0700000003000000
   jours: 0500000006000000

@@ -19,6 +19,7 @@ public class FirstMiniGameManager : MonoBehaviour
     public TextMeshPro textMesh;
     public TextMeshPro countdownStart;
     public int numberWords;
+    public GameObject player;
 
     private float timerStart = 4f;
     private float timerLeft;
@@ -190,6 +191,7 @@ public class FirstMiniGameManager : MonoBehaviour
         phrasing = sentence;
         timerLeft = timer;
         textMesh.text = timerLeft.ToString("00.00");
+        player.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
 

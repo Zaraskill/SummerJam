@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sailor Ship
   m_EditorClassIdentifier: 
   prix: 0
-  visuals: 2
+  visual: 2
   rooms: 0100000007000000040000000a000000
-  langages: 0200000006000000
+  langages: 0300000005000000
   jours: 000000000100000002000000

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Babel Hotel
   m_EditorClassIdentifier: 
   prix: 1
-  visuals: 2
+  visual: 2
   rooms: 04000000050000000100000006000000
   langages: 0500000002000000
   jours: 0200000003000000040000000500000006000000
